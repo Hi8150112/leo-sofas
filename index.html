@@ -3,201 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mety Móveis & Vida - Sofás de Qualidade da China</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Mety Móveis & Vida - Sofás de Alta Qualidade | Praia, Cabo Verde</title>
+    <meta name="description" content="Mety Móveis & Vida - Sofás premium de fábrica em Praia, Cabo Verde. Design moderno, materiais de alta qualidade. Reclináveis, conjuntos 3+2+1, couro e tecido. Entrega em 2 meses. Preços desde 500€.">
+    <meta name="keywords" content="sofás Cabo Verde, móveis Praia, sofá premium, sofá reclinável, sofá 3 lugares, sofá 2 lugares, Mety Móveis, loja de móveis Praia, sofás qualidade Cabo Verde, sofá moderno">
+    <meta name="author" content="Mety Móveis & Vida">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://leo-sofas.vercel.app/">
+    <meta property="og:title" content="Mety Móveis & Vida - Sofás Premium em Cabo Verde">
+    <meta property="og:description" content="Sofás de alta qualidade, design moderno em Praia, Cabo Verde. Reclináveis, conjuntos completos. Entrega em 2 meses, instalação incluída, garantia de 1 ano.">
+    <meta property="og:image" content="https://leo-sofas.vercel.app/images/图片_20260411021153_162_128.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://leo-sofas.vercel.app/">
+    <meta property="twitter:title" content="Mety Móveis & Vida - Sofás Premium em Cabo Verde">
+    <meta property="twitter:description" content="Sofás de alta qualidade, design moderno em Praia, Cabo Verde. Entrega em 2 meses, instalação incluída, garantia de 1 ano.">
+    <meta property="twitter:image" content="https://leo-sofas.vercel.app/images/图片_20260411021153_162_128.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://leo-sofas.vercel.app/">
+    
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QZKXE2SSTT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QZKXE2SSTT');
+    </script>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FurnitureStore",
+      "name": "Mety Móveis & Vida",
+      "alternateName": "Mety的家居生活馆",
+      "description": "Mety Móveis & Vida - Sofás premium de fábrica, design moderno em Praia, Cabo Verde. Reclináveis, conjuntos 3+2+1, materiais de alta qualidade.",
+      "url": "https://leo-sofas.vercel.app/",
+      "telephone": "+2389818185",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mety",
+        "addressLocality": "Praia",
+        "addressCountry": "CV"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "14.9167",
+        "longitude": "-23.5167"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "priceRange": "€€",
+      "paymentAccepted": "Cash, Bank Transfer",
+      "currenciesAccepted": "EUR",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Cabo Verde"
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <h1>🏠 Mety的家具生活馆</h1>
-                <span>Mety Móveis & Vida</span>
+                <h1>Mety的家居生活馆</h1>
+                <span>Mety Móveis &amp; Vida</span>
             </div>
             <nav class="nav">
-                <a href="#home">Início</a>
-                <a href="#products">Sofás</a>
-                <a href="#services">Serviços</a>
-                <a href="#contact">Contacto</a>
+                <a href="#home" data-t="nav_home">Início</a>
+                <a href="#products" data-t="nav_sofas">Sofás</a>
+                <a href="#services" data-t="nav_services">Serviços</a>
+                <a href="#contact" data-t="nav_contact">Contacto</a>
+                <a href="#" onclick="openAdminModal(); return false;" data-t="nav_admin">Admin</a>
             </nav>
+            <div class="language-selector">
+                <button class="lang-btn" data-lang="zh" onclick="setLanguage('zh')">中文</button>
+                <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn active" data-lang="pt" onclick="setLanguage('pt')">PT</button>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h2>Sofás Chineses de Alta Qualidade</h2>
-            <p>Conforto e elegância para sua casa em Cabo Verde</p>
+            <h2 data-t="hero_title">Sofás Premium de Fábrica</h2>
+            <p data-t="hero_subtitle">Design moderno e qualidade superior para a sua casa em Cabo Verde</p>
             <div class="hero-features">
-                <span>🚚 Entrega em 2 meses</span>
-                <span>🔧 Instalação incluída</span>
-                <span>✅ Garantia de 1 ano</span>
+                <span data-t="hero_delivery">Entrega em 2 meses</span>
+                <span data-t="hero_install">Instalação incluída</span>
+                <span data-t="hero_warranty">Garantia de 1 ano</span>
             </div>
-            <a href="#products" class="btn-primary">Ver Sofás</a>
+            <a href="#products" class="btn-primary" data-t="hero_button">Ver Sofás</a>
         </div>
     </section>
 
     <!-- Products Section -->
     <section id="products" class="products">
         <div class="container">
-            <h2 class="section-title">Nossa Coleção de Sofás</h2>
-            <p class="section-subtitle">Sofás em L de design moderno e conforto superior</p>
+            <h2 class="section-title" data-t="products_title">Nossa Coleção de Sofás</h2>
+            <p class="section-subtitle" data-t="products_subtitle">Sofás de design contemporâneo, conforto excepcional e materiais premium</p>
             
             <div class="products-grid">
-                <!-- Product 1 -->
+                <!-- Product 1: 单人功能沙发 - 米色布艺 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/sofa1.jpg" alt="Sofá Cinza Moderno">
+                        <img src="images/图片_20260411021153_162_128.jpg" alt="Poltrona Reclinável Bege">
                     </div>
                     <div class="product-info">
-                        <h3>Sofá Cinza Moderno</h3>
-                        <p class="product-desc">Design elegante em tecido cinza, 3 lugares com chaise</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Cinza Moderno')">Encomendar</button>
+                        <h3 data-t="product1_name">Poltrona Reclinável Bege</h3>
+                        <p class="product-desc" data-t="product1_desc">Tecido bege confortável, mecanismo reclinável</p>
+                        <div class="product-price">500€</div>
+                        <button class="btn-order" onclick="openOrderModal('Poltrona Reclinável Bege')" data-t="order_button">Encomendar</button>
                     </div>
                 </div>
 
-                <!-- Product 2 -->
+                <!-- Product 2: 单人功能沙发展开 - 米色布艺 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/sofa2.jpg" alt="Sofá Cinza com Costuras">
+                        <img src="images/图片_20260411021154_163_128.jpg" alt="Poltrona Reclinável Aberta">
                     </div>
                     <div class="product-info">
-                        <h3>Sofá Cinza com Costuras</h3>
-                        <p class="product-desc">Detalhes em costura vertical, estilo contemporâneo</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Cinza com Costuras')">Encomendar</button>
+                        <h3 data-t="product2_name">Poltrona Reclinável Aberta</h3>
+                        <p class="product-desc" data-t="product2_desc">Posição reclinada para máximo conforto</p>
+                        <div class="product-price">500€</div>
+                        <button class="btn-order" onclick="openOrderModal('Poltrona Reclinável Aberta')" data-t="order_button">Encomendar</button>
                     </div>
                 </div>
 
-                <!-- Product 3 -->
+                <!-- Product 3: 双人功能沙发 - 米色带杯架 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/sofa3.jpg" alt="Sofá Cinza Capitoné">
+                        <img src="images/图片_20260411021155_164_128.jpg" alt="Sofá 2 Lugares com Porta-copos">
                     </div>
                     <div class="product-info">
-                        <h3>Sofá Cinza Capitoné</h3>
-                        <p class="product-desc">Acabamento capitoné sofisticado, tecido premium</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Cinza Capitoné')">Encomendar</button>
+                        <h3 data-t="product3_name">Sofá 2 Lugares com Porta-copos</h3>
+                        <p class="product-desc" data-t="product3_desc">Console central com porta-copos, tecido bege</p>
+                        <div class="product-price">500€</div>
+                        <button class="btn-order" onclick="openOrderModal('Sofá 2 Lugares com Porta-copos')" data-t="order_button">Encomendar</button>
                     </div>
                 </div>
 
-                <!-- Product 4 -->
+                <!-- Product 4: 沙发组合 - 米色 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/sofa4.jpg" alt="Sofá Cinza Escuro">
+                        <img src="images/图片_20260411021146_158_128.jpg" alt="Conjunto Sofá Bege 3+2+1">
                     </div>
                     <div class="product-info">
-                        <h3>Sofá Cinza Escuro</h3>
-                        <p class="product-desc">Tom escuro elegante, design minimalista</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Cinza Escuro')">Encomendar</button>
+                        <h3 data-t="product4_name">Conjunto Sofá Bege 3+2+1</h3>
+                        <p class="product-desc" data-t="product4_desc">Conjunto completo: 3 lugares, 2 lugares e poltrona</p>
+                        <div class="product-price">500€</div>
+                        <button class="btn-order" onclick="openOrderModal('Conjunto Sofá Bege 3+2+1')" data-t="order_button">Encomendar</button>
                     </div>
                 </div>
 
-                <!-- Product 5 -->
+                <!-- Product 5: 双人功能沙发 - 米色带杯架另一角度 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/sofa5.jpg" alt="Sofá Castanho com Puff">
+                        <img src="images/图片_20260411021150_160_128.jpg" alt="Sofá 2 Lugares Reclinável">
                     </div>
                     <div class="product-info">
-                        <h3>Sofá Castanho com Puff</h3>
-                        <p class="product-desc">Conjunto completo com puff combinando</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Castanho com Puff')">Encomendar</button>
+                        <h3 data-t="product5_name">Sofá 2 Lugares Reclinável</h3>
+                        <p class="product-desc" data-t="product5_desc">Dois lugares reclináveis com console central</p>
+                        <div class="product-price">500€</div>
+                        <button class="btn-order" onclick="openOrderModal('Sofá 2 Lugares Reclinável')" data-t="order_button">Encomendar</button>
                     </div>
                 </div>
 
-                <!-- Product 6 -->
+                <!-- Product 6: 深灰色布艺沙发组合 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/sofa6.jpg" alt="Sofá Branco Puro">
+                        <img src="images/图片_20260411021200_168_128.jpg" alt="Conjunto Sofá Cinza Escuro">
                     </div>
                     <div class="product-info">
-                        <h3>Sofá Branco Puro</h3>
-                        <p class="product-desc">Design clean em branco, moderno e luminoso</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Branco Puro')">Encomendar</button>
+                        <h3 data-t="product6_name">Conjunto Sofá Cinza Escuro</h3>
+                        <p class="product-desc" data-t="product6_desc">Conjunto 3+2+1 em tecido cinza escuro</p>
+                        <div class="product-price">500€</div>
+                        <button class="btn-order" onclick="openOrderModal('Conjunto Sofá Cinza Escuro')" data-t="order_button">Encomendar</button>
                     </div>
                 </div>
 
-                <!-- Product 7 -->
+                <!-- Product 7: 灰色皮质单人功能沙发 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/sofa7.jpg" alt="Sofá Bege Modular">
+                        <img src="images/图片_20260411021201_169_128.jpg" alt="Poltrona Couro Cinza">
                     </div>
                     <div class="product-info">
-                        <h3>Sofá Bege Modular</h3>
-                        <p class="product-desc">Configuração modular versátil, tom bege suave</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Bege Modular')">Encomendar</button>
+                        <h3 data-t="product7_name">Poltrona Couro Cinza</h3>
+                        <p class="product-desc" data-t="product7_desc">Couro sintético cinza, reclinável</p>
+                        <div class="product-price">500€</div>
+                        <button class="btn-order" onclick="openOrderModal('Poltrona Couro Cinza')" data-t="order_button">Encomendar</button>
                     </div>
                 </div>
 
-                <!-- Product 8 -->
+                <!-- Product 8: 白色皮质单人功能沙发 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/sofa8.jpg" alt="Sofá Laranja Veludo">
+                        <img src="images/图片_20260411021202_170_128.jpg" alt="Poltrona Couro Branco">
                     </div>
                     <div class="product-info">
-                        <h3>Sofá Laranja Veludo</h3>
-                        <p class="product-desc">Veludo luxuoso em tom laranja, design arrojado</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Laranja Veludo')">Encomendar</button>
+                        <h3 data-t="product8_name">Poltrona Couro Branco</h3>
+                        <p class="product-desc" data-t="product8_desc">Couro branco elegante, design moderno</p>
+                        <div class="product-price">500€</div>
+                        <button class="btn-order" onclick="openOrderModal('Poltrona Couro Branco')" data-t="order_button">Encomendar</button>
                     </div>
                 </div>
 
-                <!-- Product 9 -->
+                <!-- Product 9: 灰色皮质双人功能沙发 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/sofa9.jpg" alt="Sofá Azul Royal">
+                        <img src="images/图片_20260411021210_176_128.jpg" alt="Sofá 2 Lugares Couro Cinza">
                     </div>
                     <div class="product-info">
-                        <h3>Sofá Azul Royal</h3>
-                        <p class="product-desc">Azul profundo elegante, acabamento capitoné</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Azul Royal')">Encomendar</button>
+                        <h3 data-t="product9_name">Sofá 2 Lugares Couro Cinza</h3>
+                        <p class="product-desc" data-t="product9_desc">Couro cinza com porta-copos metálicos</p>
+                        <div class="product-price">500€</div>
+                        <button class="btn-order" onclick="openOrderModal('Sofá 2 Lugares Couro Cinza')" data-t="order_button">Encomendar</button>
                     </div>
                 </div>
 
-                <!-- Product 10 -->
+                <!-- Product 10: 灰色皮质三人位沙发 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/sofa10.jpg" alt="Sofá Cinza Claro">
+                        <img src="images/图片_20260411021211_177_128.jpg" alt="Sofá 3 Lugares Couro Cinza">
                     </div>
                     <div class="product-info">
-                        <h3>Sofá Cinza Claro</h3>
-                        <p class="product-desc">Tom claro suave, design compacto e confortável</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Cinza Claro')">Encomendar</button>
+                        <h3 data-t="product9_name">Sofá 3 Lugares Couro Cinza</h3>
+                        <p class="product-desc" data-t="product9_desc">Três lugares reclináveis, couro premium</p>
+                        <div class="product-price">500€</div>
+                        <button class="btn-order" onclick="openOrderModal('Sofá 3 Lugares Couro Cinza')" data-t="order_button">Encomendar</button>
                     </div>
                 </div>
-
-                <!-- Product 11 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/sofa11.jpg" alt="Sofá Vermelho Vinho">
-                    </div>
-                    <div class="product-info">
-                        <h3>Sofá Vermelho Vinho</h3>
-                        <p class="product-desc">Vermelho vinho sofisticado, destaque na sala</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Vermelho Vinho')">Encomendar</button>
-                    </div>
-                </div>
-
-                <!-- Product 12 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/sofa12.jpg" alt="Sofá Azul Celeste">
                     </div>
                     <div class="product-info">
                         <h3>Sofá Azul Celeste</h3>
                         <p class="product-desc">Azul suave com detalhes em matelassê, almofadas inclusas</p>
-                        <div class="product-price">Sob consulta</div>
-                        <button class="btn-order" onclick="openOrderModal('Sofá Azul Celeste')">Encomendar</button>
+                        <div class="product-price">500€</div>
+                        <button class="btn-order" onclick="openOrderModal('Sofá Azul Celeste')" data-t="order_button">Encomendar</button>
                     </div>
                 </div>
             </div>
@@ -207,10 +265,10 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title">Nossos Serviços</h2>
+            <h2 class="section-title" data-t="services_title">Nossos Serviços</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🛒</div>
+                    <span class="service-icon">↗</span>
                     <h3>Como Encomendar</h3>
                     <ul>
                         <li>Visite nossa loja em Praia ou encomende online</li>
@@ -220,7 +278,7 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🚚</div>
+                    <span class="service-icon">→</span>
                     <h3>Entrega e Instalação</h3>
                     <ul>
                         <li>Entrega em todo Cabo Verde</li>
@@ -230,7 +288,7 @@
                     </ul>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🛡️</div>
+                    <span class="service-icon">◇</span>
                     <h3>Garantia</h3>
                     <ul>
                         <li>Garantia de <strong>1 ano</strong> em todos os sofás</li>
@@ -246,22 +304,30 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
+            <h2 class="section-title" data-t="contact_title">Contacto</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>📍 Visite-nos</h3>
-                    <p><strong>Mety的家具生活馆 - Mety Móveis & Vida</strong></p>
+                    <h3>Localização</h3>
+                    <p><strong>Mety的家居生活馆 - Mety Móveis & Vida</strong></p>
                     <p>Mety, Praia</p>
                     <p>Cabo Verde</p>
                     
-                    <h3>📞 Contacto</h3>
-                    <p>Telefone: [Adicionar número]</p>
-                    <p>WhatsApp: [Adicionar número]</p>
-                    <p>Email: [Adicionar email]</p>
+                    <h3>Contacto</h3>
+                    <p>Telefone: 9818185</p>
+                    <p>WhatsApp: 9818185</p>
+                    <p>Email: <a href="mailto:houlei@live.cn" style="color:var(--accent-color)">houlei@live.cn</a></p>
                     
-                    <h3>🕐 Horário</h3>
+                    <h3>Horário</h3>
                     <p>Segunda a Sábado: 9h - 18h</p>
                     <p>Domingo: Fechado</p>
+                    
+                    <h3>Dados Bancários</h3>
+                    <p><strong>Banco: BCN</strong></p>
+                    <p>Conta: 1126378810001</p>
+                    <p>NIB: 000400001126378810197</p>
+                    <p>IBAN: CV64 000400001126378810197</p>
+                    <p>SWIFT: CANBCVCV</p>
+                    <p>Titular: CASA MAIS PRINT SOC UNIP LDA</p>
                 </div>
                 <div class="contact-form">
                     <h3>Enviar Mensagem</h3>
@@ -282,8 +348,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h3>🏠 Mety的家具生活馆</h3>
-                    <p>Mety Móveis & Vida - Sofás de Qualidade</p>
+                    <h3>Mety的家居生活馆</h3>
+                    <p>Mety Móveis &amp; Vida — Sofás de Qualidade</p>
                 </div>
                 <div class="footer-links">
                     <a href="#home">Início</a>
@@ -293,7 +359,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Mety的家具生活馆 - Mety Móveis & Vida. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Mety的家居生活馆 — Mety Móveis &amp; Vida. Todos os direitos reservados.</p>
                 <p>Servindo Cabo Verde com qualidade e confiança.</p>
             </div>
         </div>
@@ -311,7 +377,7 @@
                 <input type="email" placeholder="Email">
                 <textarea placeholder="Observações (cor preferida, dimensões, etc.)" rows="3"></textarea>
                 <div class="deposit-info">
-                    <p>💰 Sinal necessário: <strong>200€</strong></p>
+                    <p>Sinal necessário: <strong>200€</strong></p>
                     <p>Prazo de entrega: <strong>2 meses</strong></p>
                 </div>
                 <button type="submit" class="btn-primary">Confirmar Encomenda</button>
@@ -319,6 +385,36 @@
         </div>
     </div>
 
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAdminModal()">&times;</span>
+            <h2>Admin Login</h2>
+            <form id="adminForm">
+                <input type="text" id="adminUser" placeholder="Username" required>
+                <input type="password" id="adminPass" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel" style="display:none;">
+        <div class="admin-content">
+            <h2>Painel de Administração</h2>
+            <div class="admin-stats">
+                <h3>Estatísticas de Encomendas</h3>
+                <p>Total de encomendas: <span id="orderCount">0</span></p>
+            </div>
+            <div class="admin-orders">
+                <h3>Encomendas Recentes</h3>
+                <div id="ordersList"></div>
+            </div>
+            <button onclick="logoutAdmin()" class="btn-secondary">Logout</button>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

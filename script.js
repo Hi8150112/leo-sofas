@@ -73,11 +73,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
     if (window.scrollY > 100) {
-        header.style.background = 'rgba(139, 69, 19, 0.95)';
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
         header.style.backdropFilter = 'blur(10px)';
+        header.style.boxShadow = '0 1px 3px rgba(0,0,0,0.08)';
     } else {
-        header.style.background = 'linear-gradient(135deg, #8B4513 0%, #D2691E 100%)';
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
         header.style.backdropFilter = 'none';
+        header.style.boxShadow = 'none';
     }
 });
 
@@ -183,5 +185,116 @@ emailInputs.forEach(input => {
     });
 });
 
-console.log('🏠 Leo的家 - Casa de Leo website loaded successfully!');
+// Admin Panel Functions
+const ADMIN_USER = 'houlei850404';
+const ADMIN_PASS = 'Hi850404';
+
+function openAdminModal() {
+    const modal = document.getElementById('adminModal');
+    modal.style.display = 'block';
+}
+
+function closeAdminModal() {
+    const modal = document.getElementById('adminModal');
+    modal.style.display = 'none';
+}
+
+function logoutAdmin() {
+    document.getElementById('adminPanel').style.display = 'none';
+    localStorage.removeItem('adminLoggedIn');
+}
+
+// Admin Form Submission
+document.getElementById('adminForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const user = document.getElementById('adminUser').value;
+    const pass = document.getElementById('adminPass').value;
+    
+    if (user === ADMIN_USER && pass === ADMIN_PASS) {
+        localStorage.setItem('adminLoggedIn', 'true');
+        closeAdminModal();
+        document.getElementById('adminPanel').style.display = 'block';
+        loadOrders();
+        alert('Login bem-sucedido! / Login successful!');
+    } else {
+        alert('Username ou password incorretos! / Incorrect username or password!');
+    }
+    this.reset();
+});
+
+// Save order to localStorage
+function saveOrder(orderData) {
+    let orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    orderData.id = Date.now();
+    orderData.date = new Date().toLocaleString();
+    orders.push(orderData);
+    localStorage.setItem('orders', JSON.stringify(orders));
+}
+
+// Load orders for admin panel
+function loadOrders() {
+    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    document.getElementById('orderCount').textContent = orders.length;
+    
+    const ordersList = document.getElementById('ordersList');
+    if (orders.length === 0) {
+        ordersList.innerHTML = '<p>Sem encomendas ainda / No orders yet</p>';
+    } else {
+        ordersList.innerHTML = orders.map(order => `
+            <div class="order-item">
+                <p><strong>Sofá:</strong> ${order.sofa}</p>
+                <p><strong>Nome:</strong> ${order.name}</p>
+                <p><strong>Telefone:</strong> ${order.phone}</p>
+                <p><strong>Data:</strong> ${order.date}</p>
+                <hr>
+            </div>
+        `).join('');
+    }
+}
+
+// Update order form to save data
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const sofaName = document.getElementById('selectedSofa').textContent.replace('Sofá selecionado: ', '');
+    const name = this.querySelector('input[type="text"]').value;
+    const phone = this.querySelector('input[type="tel"]').value;
+    const email = this.querySelector('input[type="email"]').value;
+    const notes = this.querySelector('textarea').value;
+    
+    saveOrder({
+        sofa: sofaName,
+        name: name,
+        phone: phone,
+        email: email,
+        notes: notes
+    });
+    
+    alert(`Encomenda recebida!\n\nSofá: ${sofaName}\n\nEntraremos em contacto para confirmar os detalhes e pagamento do sinal de 200€.\n\nOrder received! We will contact you to confirm details and deposit payment.`);
+    
+    closeOrderModal();
+    this.reset();
+});
+
+// Check if admin is already logged in
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('adminLoggedIn') === 'true') {
+        document.getElementById('adminPanel').style.display = 'block';
+        loadOrders();
+    }
+});
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const orderModal = document.getElementById('orderModal');
+    const adminModal = document.getElementById('adminModal');
+    if (event.target === orderModal) {
+        closeOrderModal();
+    }
+    if (event.target === adminModal) {
+        closeAdminModal();
+    }
+}
+
+console.log('🏠 Mety的家具生活馆 - Mety Móveis & Vida website loaded successfully!');
 console.log('📞 Ready to serve customers in Cabo Verde');
