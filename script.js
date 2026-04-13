@@ -296,5 +296,5 @@ window.onclick = function(event) {
     }
 }
 
-console.log('🏠 锦正家居生活馆 - Kingzen Móveis & Vida website loaded successfully!');
+console.log('🏠 小红家居生活馆 - Kingzen Móveis & Vida website loaded successfully!');
 console.log('📞 Ready to serve customers in Cabo Verde');
