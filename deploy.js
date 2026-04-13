@@ -12,7 +12,7 @@ const { execSync } = require('child_process');
 
 // 创建一个简单的静态文件服务器配置
 const wranglerConfig = `
-name = "mety-sofas"
+name = "kingzen"
 compatibility_date = "2024-01-01"
 
 [site]
@@ -25,7 +25,7 @@ console.log('🚀 正在准备部署...');
 console.log('📦 打包网站文件中...');
 
 // 使用 npx 直接运行 wrangler pages deploy
-const deployCmd = 'npx wrangler pages deploy . --project-name mety-sofas --branch main';
+const deployCmd = 'npx wrangler pages deploy . --project-name kingzen --branch main';
 
 try {
   const result = execSync(deployCmd, { 

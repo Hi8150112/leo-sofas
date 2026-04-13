@@ -296,5 +296,5 @@ window.onclick = function(event) {
     }
 }
 
-console.log('🏠 Mety的家具生活馆 - Mety Móveis & Vida website loaded successfully!');
+console.log('🏠 锦正家居生活馆 - Kingzen Móveis & Vida website loaded successfully!');
 console.log('📞 Ready to serve customers in Cabo Verde');
