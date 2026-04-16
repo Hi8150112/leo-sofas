@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://kingzen.pages.dev/</loc>
     <lastmod>2026-04-16</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://kingzen.pages.dev/images/hero-1-modular-sofa.jpg</image:loc>
+      <image:title>Cloud Modular L-Shape Sectional Sofa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kingzen.pages.dev/images/hero-2-sectional-sofa.jpg</image:loc>
+      <image:title>Aurora U-Shape Sectional Sofa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kingzen.pages.dev/images/hero-3-luxury-sofa.jpg</image:loc>
+      <image:title>Nova Compact Small Space Sofa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kingzen.pages.dev/images/hero-4-minimal-sofa.jpg</image:loc>
+      <image:title>Minimalist Modern Sofa</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://kingzen.pages.dev/cloud-sectional-sofa.html</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://kingzen.pages.dev/images/hero-1-modular-sofa.jpg</image:loc>
+      <image:title>Cloud Modular L-Shape Sectional Sofa</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://kingzen.pages.dev/aurora-u-shape-sectional.html</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://kingzen.pages.dev/images/hero-2-sectional-sofa.jpg</image:loc>
+      <image:title>Aurora U-Shape Sectional Sofa</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://kingzen.pages.dev/nova-compact-sofa.html</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://kingzen.pages.dev/images/hero-3-luxury-sofa.jpg</image:loc>
+      <image:title>Nova Compact Small Space Sofa</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://kingzen.pages.dev/privacy-policy.html</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://kingzen.pages.dev/feed.xml</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

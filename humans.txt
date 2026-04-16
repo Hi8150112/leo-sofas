@@ -1,0 +1,11 @@
+/* TEAM */
+Name: KingZen Sofa
+Location: Hainan, China
+Email: houlei@live.cn
+Website: https://kingzen.pages.dev
+
+/* SITE */
+Last update: 2026/04/16
+Standards: HTML5, CSS3
+Components: Vanilla JS
+Software: Hand-coded
