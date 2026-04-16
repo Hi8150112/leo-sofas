@@ -1,16 +1,34 @@
+// ===== CAROUSEL =====
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.dot');
+let autoSlideTimer;
+
+function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = index;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    resetAutoSlide();
+}
+
+function nextSlide() {
+    goToSlide((currentSlide + 1) % slides.length);
+}
+
+function prevSlide() {
+    goToSlide((currentSlide - 1 + slides.length) % slides.length);
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideTimer);
+    autoSlideTimer = setInterval(nextSlide, 5000);
+}
+
+resetAutoSlide();
+
 // ===== MODAL FUNCTIONS =====
-function openOrderModal(sofaName) {
-    const modal = document.getElementById('orderModal');
-    const selected = document.getElementById('selectedSofa');
-    selected.textContent = 'Product: ' + sofaName;
-    selected.style.cssText = 'background:#f0f4f8;padding:8px 14px;border-radius:4px;font-size:0.9rem;color:#0F2B46;font-weight:600;margin-bottom:8px;display:block;';
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-function closeOrderModal() {
-    document.getElementById('orderModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
 function openAdminModal() {
     document.getElementById('adminModal').style.display = 'block';
 }
@@ -24,15 +42,13 @@ function logoutAdmin() {
 
 // ===== CLOSE MODAL ON OUTSIDE CLICK =====
 window.onclick = function(e) {
-    const orderModal = document.getElementById('orderModal');
     const adminModal = document.getElementById('adminModal');
-    if (e.target === orderModal) closeOrderModal();
     if (e.target === adminModal) closeAdminModal();
 };
 
 // ===== ESC TO CLOSE =====
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') { closeOrderModal(); closeAdminModal(); }
+    if (e.key === 'Escape') { closeAdminModal(); }
 });
 
 // ===== MOBILE MENU =====
@@ -67,25 +83,68 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== CONTACT FORM =====
+// ===== CONTACT FORM (Bottom Contact Section) =====
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const name = this.querySelector('[name="name"]').value;
     const email = this.querySelector('[name="email"]').value;
+    const country = this.querySelector('[name="country"]').value;
+    const style = this.querySelector('[name="style"]').value;
+    const quantity = this.querySelector('[name="quantity"]').value;
     const message = this.querySelector('[name="message"]').value;
 
-    // Build mailto link
-    const subject = encodeURIComponent('Wholesale Sofa Inquiry - ' + name);
+    const subject = encodeURIComponent('Sofa Inquiry - ' + name);
     const body = encodeURIComponent(
-        'Name: ' + name + '\n' +
-        'Email: ' + email + '\n' +
-        'Company: ' + (this.querySelector('[name="company"]').value || 'N/A') + '\n' +
-        'Destination Port: ' + (this.querySelector('[name="port"]').value || 'N/A') + '\n\n' +
-        'Requirements:\n' + message
+        'Full Name: ' + name + '\n' +
+        'Email Address: ' + email + '\n' +
+        'Country: ' + country + '\n' +
+        'Interested Sofa Style: ' + style + '\n' +
+        'Quantity: ' + quantity + '\n\n' +
+        'Message:\n' + (message || 'No additional message.')
     );
     window.location.href = 'mailto:houlei@live.cn?subject=' + subject + '&body=' + body;
-    alert('Thank you! Your email client will open to send your inquiry to houlei@live.cn');
-    this.reset();
+
+    // Show success message
+    const formWrap = this.closest('.contact-form-wrap');
+    this.style.display = 'none';
+    formWrap.querySelector('h3').textContent = 'Thank you! We will reply to your email within 12 hours.';
+    formWrap.querySelector('h3').style.color = '#2d8a4e';
+    formWrap.querySelector('h3').style.fontSize = '1.1rem';
+
+    // Save to localStorage
+    saveInquiry({ name, email, country, style, quantity, message });
+});
+
+// ===== INLINE INQUIRY FORM =====
+document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const fullName = this.querySelector('[name="fullName"]').value;
+    const emailAddress = this.querySelector('[name="emailAddress"]').value;
+    const country = this.querySelector('[name="country"]').value;
+    const sofaStyle = this.querySelector('[name="sofaStyle"]').value;
+    const quantity = this.querySelector('[name="quantity"]').value;
+    const message = this.querySelector('[name="message"]').value;
+
+    const subject = encodeURIComponent('Sofa Inquiry - ' + fullName);
+    const body = encodeURIComponent(
+        'Full Name: ' + fullName + '\n' +
+        'Email Address: ' + emailAddress + '\n' +
+        'Country: ' + country + '\n' +
+        'Interested Sofa Style: ' + sofaStyle + '\n' +
+        'Quantity: ' + quantity + '\n\n' +
+        'Message:\n' + (message || 'No additional message.')
+    );
+    window.location.href = 'mailto:houlei@live.cn?subject=' + subject + '&body=' + body;
+
+    // Show success
+    const section = this.closest('.inline-form-section');
+    this.style.display = 'none';
+    section.querySelector('.section-header p').textContent = 'Thank you! We will reply to your email within 12 hours.';
+    section.querySelector('.section-header p').style.color = '#2d8a4e';
+    section.querySelector('.section-header p').style.fontWeight = '600';
+
+    // Save to localStorage
+    saveInquiry({ name: fullName, email: emailAddress, country, style: sofaStyle, quantity, message });
 });
 
 // ===== ADMIN LOGIN =====
@@ -100,7 +159,7 @@ document.getElementById('adminForm').addEventListener('submit', function(e) {
         localStorage.setItem('adminLoggedIn', 'true');
         closeAdminModal();
         document.getElementById('adminPanel').style.display = 'block';
-        loadOrders();
+        loadInquiries();
         alert('Login successful!');
     } else {
         alert('Incorrect username or password!');
@@ -108,26 +167,27 @@ document.getElementById('adminForm').addEventListener('submit', function(e) {
     this.reset();
 });
 
-// ===== ORDERS (localStorage) =====
-function saveOrder(data) {
-    let orders = JSON.parse(localStorage.getItem('orders') || '[]');
+// ===== INQUIRIES (localStorage) =====
+function saveInquiry(data) {
+    let inquiries = JSON.parse(localStorage.getItem('inquiries') || '[]');
     data.id = Date.now();
     data.date = new Date().toLocaleString();
-    orders.push(data);
-    localStorage.setItem('orders', JSON.stringify(orders));
+    inquiries.push(data);
+    localStorage.setItem('inquiries', JSON.stringify(inquiries));
 }
-function loadOrders() {
-    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
-    document.getElementById('orderCount').textContent = orders.length;
+function loadInquiries() {
+    const inquiries = JSON.parse(localStorage.getItem('inquiries') || '[]');
+    document.getElementById('orderCount').textContent = inquiries.length;
     const list = document.getElementById('ordersList');
-    if (!orders.length) {
-        list.innerHTML = '<p style="font-size:0.85rem;opacity:0.7;">No orders yet.</p>';
+    if (!inquiries.length) {
+        list.innerHTML = '<p style="font-size:0.85rem;opacity:0.7;">No inquiries yet.</p>';
     } else {
-        list.innerHTML = orders.reverse().map(o => `
+        list.innerHTML = inquiries.reverse().map(o => `
             <div style="border:1px solid rgba(255,255,255,0.15);border-radius:4px;padding:12px;margin-bottom:8px;font-size:0.82rem;">
-                <p><strong>${o.sofa || 'Inquiry'}</strong></p>
+                <p><strong>${o.style || 'Inquiry'}</strong> - ${o.quantity || ''}</p>
                 <p>Name: ${o.name}</p>
                 <p>Email: ${o.email}</p>
+                <p>Country: ${o.country || ''}</p>
                 <p style="opacity:0.6;">${o.date}</p>
             </div>
         `).join('');
@@ -146,18 +206,16 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Animate cards
-    document.querySelectorAll('.product-card, .why-card, .term-item, .step-item').forEach(el => {
+    document.querySelectorAll('.product-card, .why-card, .gallery-item').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(24px)';
         el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(el);
     });
 
-    // Check admin session
     if (localStorage.getItem('adminLoggedIn') === 'true') {
         document.getElementById('adminPanel').style.display = 'block';
-        loadOrders();
+        loadInquiries();
     }
 });
 
@@ -168,5 +226,3 @@ document.querySelector('.logo').addEventListener('click', function() {
     if (logoClicks >= 3) { openAdminModal(); logoClicks = 0; }
     setTimeout(() => { logoClicks = 0; }, 1500);
 });
-
-console.log('KingZen Sofa - USA Wholesale Website loaded.');
