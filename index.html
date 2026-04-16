@@ -6,8 +6,8 @@
 
     <!-- SEO Meta Tags -->
     <title>KingZen Sofa – Wholesale Sofas for USA Market | China Factory Direct</title>
-    <meta name="description" content="KingZen Sofa – China sofa factory direct to USA. Wholesale recliner sofas, fabric & leather. MOQ 1 PC, custom design, 25-35 days production. Free quote.">
-    <meta name="keywords" content="wholesale sofa USA, China sofa factory, bulk sofa order, sofa wholesale supplier, recliner sofa wholesale, fabric sofa manufacturer, leather sofa wholesale, sofa exporter China, B2B sofa supply, American style sofa, OEM sofa, custom sofa China">
+    <meta name="description" content="KingZen Sofa – China sofa factory direct to USA. Wholesale recliner sofas, fabric & leather recliners, sofa sets. MOQ 1 PC, custom design, 25-35 days. Import sofas from China. Free quote.">
+    <meta name="keywords" content="wholesale sofa USA, China sofa factory, bulk sofa order, sofa wholesale supplier, recliner sofa wholesale, fabric sofa manufacturer, leather sofa wholesale, sofa exporter China, B2B sofa supply, American style sofa, OEM sofa, custom sofa China, import sofas from China to USA, China sofa factory direct, wholesale recliner sofa, low MOQ sofa manufacturer, sofa manufacturer China, bulk recliner sofa order, American furniture wholesale, sofa wholesale distributor">
     <meta name="author" content="KingZen Sofa">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="7ifWrc3V4vDbKkOOHDWY9aqG1_EZkdmPYEJttV09YgQ" />
@@ -348,6 +348,7 @@
                 <a href="#custom">Custom Service</a>
                 <a href="#factory">Factory</a>
                 <a href="#contact">Contact</a>
+                <a href="blog.html">Blog</a>
             </nav>
             <div class="header-ctas">
                 <a href="#contact" class="btn-quote">Get A Quote</a>
@@ -361,6 +362,7 @@
             <a href="#custom" onclick="closeMobileMenu()">Custom Service</a>
             <a href="#factory" onclick="closeMobileMenu()">Factory</a>
             <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+            <a href="blog.html" onclick="closeMobileMenu()">Blog</a>
         </div>
     </header>
 
@@ -809,6 +811,38 @@
         </div>
     </section>
 
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">🏭</div>
+                    <span class="trust-text">Direct Factory – No Middleman</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">📦</div>
+                    <span class="trust-text">MOQ 1 PC – Start Small</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🛡</div>
+                    <span class="trust-text">1 Year Warranty</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🚢</div>
+                    <span class="trust-text">Ships to All USA Ports</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">⏱</div>
+                    <span class="trust-text">24-Hour Quote Response</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🔒</div>
+                    <span class="trust-text">30% Deposit – Secure Payment</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
@@ -885,6 +919,7 @@
                 <h4>Quick Links</h4>
                 <a href="#home">Home</a>
                 <a href="#products">Products</a>
+                <a href="blog.html">Blog</a>
                 <a href="#custom">Custom Service</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -955,5 +990,57 @@
     </div>
 
     <script src="script.js"></script>
+
+    <!-- Floating CTA -->
+    <a href="mailto:houlei@live.cn?subject=Wholesale%20Sofa%20Inquiry" id="floatCta" class="float-cta" style="position:fixed;bottom:24px;right:24px;z-index:999;background:#FF7D00;color:#fff;padding:14px 24px;border-radius:8px;font-weight:700;font-size:0.88rem;box-shadow:0 8px 40px rgba(255,125,0,0.4);text-decoration:none;transition:all 0.25s ease;display:none;">
+        📧 Get Free Quote
+    </a>
+    <style>
+    .float-cta:hover { background:#e06d00; transform:translateY(-2px); color:#fff; text-decoration:none; }
+    .trust-badges {
+        padding: 32px 0;
+        background: var(--bg-white);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+    }
+    .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 16px;
+        text-align: center;
+    }
+    .trust-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    .trust-icon { font-size: 1.6rem; }
+    .trust-text {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--text-mid);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    @media (max-width: 768px) {
+        .trust-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .float-cta { bottom: 16px; right: 16px; padding: 12px 18px; font-size: 0.82rem; }
+    }
+    @media (max-width: 480px) {
+        .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    </style>
+    <script>
+    // Show floating CTA after scrolling past hero
+    window.addEventListener('scroll', function() {
+        var cta = document.getElementById('floatCta');
+        if (window.scrollY > 600) {
+            cta.style.display = 'block';
+        } else {
+            cta.style.display = 'none';
+        }
+    });
+    </script>
 </body>
 </html>
